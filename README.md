@@ -20,6 +20,7 @@ Setup / Run:
 
 1. Open the project folder.
 2. Open `index.html` in a web browser.
+
 2️⃣ Calculator
 
 Description:
