@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  flex-direction: column;
+}
+
+h1 {
+  color: #00ffcc;
+  text-shadow: 0 0 20px #00ffcc;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.robot {
+  position: relative;
+  width: 220px;
+  height: 380px;        
+}
+
+.head {
+  width: 110px;
+  height: 110px;
+  background: #4a4a4a;
+  border-radius: 25px;
+  position: absolute;
+  top: 20px;
+  left: 55px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.antenna {
+  width: 10px;
+  height: 45px;
+  background: #333;
+  position: absolute;
+  top: -30px;
+  left: 50px;
+}
+
+.antenna::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: #ff00ff;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -4px;
+  animation: glow 1.2s infinite alternate;
+}
+
+.eye {
+  width: 22px;
+  height: 28px;
+  background: #ff0000;
+  border-radius: 50%;
+  position: absolute;
+  top: 35px;
+  animation: blink 4s infinite;
+}
+
+.eye.left { left: 25px; }
+.eye.right { right: 25px; }
+
+.body {
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(#4a4a4a, #2a2a2a);
+  position: absolute;
+  top: 120px;
+  left: 45px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.arm {
+  width: 35px;
+  height: 110px;
+  background: #4a4a4a;
+  position: absolute;
+  top: 125px;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+}
+
+.left-arm {
+  left: 25px;
+  transform-origin: top center;
+}
+
+.right-arm {
+  right: 25px;
+  transform-origin: top center;
+}
+
+.leg {
+  width: 38px;
+  height: 95px;
+  background: #333;
+  position: absolute;
+  bottom: -40px;        
+  border-radius: 18px;
+}
+
+.left-leg { left: 50px; }
+.right-leg { right: 50px; }
+
+.robot.dancing {
+  animation: body-dance 1.8s infinite alternate ease-in-out;
+}
+
+.arm {
+  animation: arm-dance 0.7s infinite alternate ease-in-out;
+}
+
+.left-arm { animation-delay: 0.1s; }
+.right-arm { animation-delay: 0.3s; }
+
+.leg {
+  animation: leg-dance 0.65s infinite alternate ease-in-out;
+}
+
+.left-leg { animation-delay: 0.2s; }
+.right-leg { animation-delay: 0.4s; }
+
+@keyframes body-dance {
+  0%   { transform: rotate(-12deg) translateY(0); }
+  100% { transform: rotate(12deg) translateY(-30px); }
+}
+
+@keyframes arm-dance {
+  0%   { transform: rotate(-45deg); }
+  50%  { transform: rotate(30deg); }
+  100% { transform: rotate(-45deg); }
+}
+
+@keyframes leg-dance {
+  0%   { transform: rotate(-25deg) translateX(0); }
+  50%  { transform: rotate(35deg) translateX(8px); }
+  100% { transform: rotate(-25deg) translateX(0); }
+}
+
+@keyframes blink {
+  0%, 85% { height: 28px; }
+  90%, 95% { height: 5px; }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px #ff00ff; }
+  to { box-shadow: 0 0 35px #ff00ff; }
+}
+
+.buttons {
+  margin-top: 50px;    
+  display: flex;
+  gap: 25px;
+}
+
+button {
+  padding: 14px 35px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dance-button {
+  background: #00ff88;
+  color: #000;
+}
+
+.stop-button {
+  background: #ff3366;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.1);
+}

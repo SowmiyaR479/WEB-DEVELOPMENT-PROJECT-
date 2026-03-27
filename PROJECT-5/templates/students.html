@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <style>
+        body { font-family: Arial; background: #eef2f3; }
+        table { width: 90%; margin: auto; border-collapse: collapse; }
+        th, td { padding: 8px; border: 1px solid #ccc; text-align: center; }
+        th { background: #007bff; color: white; }
+        a { text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">All Students</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>GPA</th>
+            <th>Admission Date</th>
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+            <td>{{ student[3] }}</td>
+            <td>{{ student[4] }}</td>
+            <td>{{ student[5] }}</td>
+            <td>{{ student[6] }}</td>
+            <td>{{ student[7] }}</td>
+            <td>{{ student[8] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+    <div style="text-align:center;">
+        <a href="/">Add More Students</a>
+    </div>
+</body>
+</html>

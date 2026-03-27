@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Record System</title>
+    <style>
+        body { font-family: Arial; background: #eef2f3; }
+        .container {
+            width: 450px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+        }
+        h3 { margin-top: 15px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🏥 Patient Registration</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    <form action="/submit" method="POST">
+
+        <h3>👤 Basic Info</h3>
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="age" placeholder="Age">
+
+        <select name="gender">
+            <option value="">Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+
+        <h3>📞 Contact</h3>
+        <input type="text" name="phone" placeholder="Phone Number">
+        <textarea name="address" placeholder="Address"></textarea>
+
+        <h3>🩺 Medical Info</h3>
+        <select name="blood">
+            <option value="">Blood Group</option>
+            <option>A+</option><option>B+</option>
+            <option>O+</option><option>AB+</option>
+            <option>A-</option><option>B-</option>
+            <option>O-</option><option>AB-</option>
+        </select>
+
+        <input type="text" name="disease" placeholder="Disease">
+        <textarea name="symptoms" placeholder="Symptoms"></textarea>
+
+        <input type="text" name="doctor" placeholder="Doctor Name">
+        <input type="date" name="date">
+
+        <h3>🚨 Emergency</h3>
+        <input type="text" name="emergency" placeholder="Emergency Contact">
+
+        <button type="submit">Save Record</button>
+    </form>
+</div>
+
+</body>
+</html>

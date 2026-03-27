@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Record</title>
+    <style>
+        body { font-family: Arial; background: #f0fff0; }
+        .card {
+            width: 450px;
+            margin: auto;
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        p { margin: 6px 0; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>🧾 Patient Record</h2>
+
+    <h3>Basic Info</h3>
+    <p>Name: {{ name }}</p>
+    <p>Age: {{ age }}</p>
+    <p>Gender: {{ gender }}</p>
+
+    <h3>Contact</h3>
+    <p>Phone: {{ phone }}</p>
+    <p>Address: {{ address }}</p>
+
+    <h3>Medical</h3>
+    <p>Blood Group: {{ blood }}</p>
+    <p>Disease: {{ disease }}</p>
+    <p>Symptoms: {{ symptoms }}</p>
+    <p>Doctor: {{ doctor }}</p>
+    <p>Date: {{ date }}</p>
+
+    <h3>Emergency</h3>
+    <p>Contact: {{ emergency }}</p>
+
+    <a href="/">⬅ Add Another</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sowmiya Rajasekar | Web Developer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Sowmiya</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Hello, I'm <span class="highlight">Sowmiya</span></h1>
+      <p class="tagline">Aspiring Web Developer from Chennai</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary">Explore My Work</a>
+        <a href="#contact" class="btn secondary">Let's Connect</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <p>
+        I'm a passionate web development student based in Chennai, Tamil Nadu. 
+        I enjoy turning ideas into warm and interactive web experiences.
+      </p>
+      <p>
+        Currently exploring frontend and learning backend with Flask & MySQL. 
+        I love creating fun projects like Dancing Robots and Calculators!
+      </p>
+    </div>
+  </section>
+
+  <div class="project-grid">
+
+  <div class="project-card">
+    <div class="project-icon">🤖</div>
+    <h3>Dancing Robot</h3>
+    <p>Interactive animated robot with play/pause controls using HTML, CSS & JavaScript.</p>
+  </div>
+
+  <div class="project-card">
+    <div class="project-icon">🧮</div>
+    <h3>Calculator</h3>
+    <p>Fully functional calculator with modern warm design and smooth operations.</p>
+  </div>
+
+  <div class="project-card">
+    <div class="project-icon">📋</div>
+    <h3>Student Entry System</h3>
+    <p>Web app to add and display student names with MySQL database using Flask.</p>
+  </div>
+
+</div>
+
+  <section id="contact" class="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-form">
+      <input type="text" id="name" placeholder="Your Name">
+      <input type="email" id="email" placeholder="Your Email">
+      <textarea id="message" placeholder="Your Message"></textarea>
+      <button onclick="sendMessage()">Send Message</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Sowmiya • Made with ❤️ in Chennai, India</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
