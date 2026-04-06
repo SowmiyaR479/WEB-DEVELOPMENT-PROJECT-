@@ -146,3 +146,44 @@ python app.py
 * Python 3.x is required for Flask projects.
 * All frontend-only projects can run directly in a browser without a server.
 
+6️⃣ Study Group Finder (Flask + SQLite/MySQL)
+
+Description:
+A full-stack web application that helps students create, join, and chat in study groups online.
+
+Features:
+
+Register and login as a user
+Create new study groups with name and description
+Join existing study groups
+Chat with members of a group in real-time
+View all available study groups
+
+Technologies:
+Python, Flask, SQLite (or MySQL), HTML, CSS, JavaScript
+
+Setup / Run:
+
+Install required dependencies:
+pip install flask flask_sqlalchemy flask_login
+Initialize the database (SQLite example):
+from app import app
+from models import db
+
+with app.app_context():
+    db.create_all()
+
+⚠️ If using MySQL, update config.py with your MySQL connection string and create tables accordingly.
+
+Run the Flask app:
+python app.py
+Open in your browser:
+http://127.0.0.1:5000/
+
+⚡ Notes:
+
+Python 3.x is required
+Keep CSS and JS in the static/ folder
+HTML templates must be in the templates/ folder
+SQLite is default; can switch to MySQL if needed
+
