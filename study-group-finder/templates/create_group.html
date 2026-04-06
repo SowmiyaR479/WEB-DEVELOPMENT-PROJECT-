@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-8 col-xl-6">
+        <div class="card shadow border-0">
+            <div class="card-header bg-primary text-white py-4">
+                <h3 class="mb-0 text-center">
+                    <i class="bi bi-plus-circle me-2"></i>
+                    Create a New Study Group
+                </h3>
+            </div>
+            
+            <div class="card-body p-5">
+                <form method="POST">
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Group Name</label>
+                        <input type="text" 
+                               name="name" 
+                               class="form-control form-control-lg" 
+                               placeholder="e.g., Advanced Python Mastery" 
+                               required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Subject / Topic</label>
+                        <input type="text" 
+                               name="subject" 
+                               class="form-control form-control-lg" 
+                               placeholder="e.g., Python Programming, Data Structures, Physics" 
+                               required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Description</label>
+                        <textarea name="description" 
+                                  class="form-control" 
+                                  rows="5" 
+                                  placeholder="Describe what this group is about, goals, meeting frequency, etc."
+                                  required></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label class="form-label fw-semibold">Maximum Members</label>
+                            <input type="number" 
+                                   name="max_members" 
+                                   class="form-control form-control-lg" 
+                                   value="8" 
+                                   min="2" 
+                                   max="30" 
+                                   required>
+                            <small class="text-muted">Recommended: 6–12 members</small>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg py-3">
+                            <i class="bi bi-plus-lg"></i> Create Study Group
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="card-footer bg-light text-center py-3">
+                <small class="text-muted">
+                    Your group will be visible to others once created
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section with Background Image -->
+<section class="hero-section text-white py-5" 
+         style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop') center/cover no-repeat; 
+                min-height: 90vh; display: flex; align-items: center;">
+    
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="display-3 fw-bold mb-4">
+                    Study Together.<br>
+                    Succeed Together.
+                </h1>
+                <p class="lead mb-5 fs-4" style="max-width: 600px;">
+                    Join thousands of students finding study groups, 
+                    collaborating in real-time, and achieving their academic goals.
+                </p>
+                
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ url_for('main.register') }}" 
+                       class="btn btn-light btn-lg px-5 py-3 fw-semibold">
+                        Join Free Today
+                    </a>
+                    <a href="{{ url_for('main.groups') }}" 
+                       class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">
+                        Browse Study Groups
+                    </a>
+                </div>
+
+                <div class="mt-5">
+                    <div class="d-flex gap-4 text-white-50">
+                        <div><i class="bi bi-people-fill"></i> 2,500+ Students</div>
+                        <div><i class="bi bi-chat-dots"></i> Active Groups</div>
+                        <div><i class="bi bi-clock"></i> Real-time Chat</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Why Students Love StudySphere</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <i class="bi bi-people-fill display-1 text-primary mb-3"></i>
+                <h4>Find Like-Minded Peers</h4>
+                <p class="text-muted">Connect with students studying the same subjects.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-chat-dots-fill display-1 text-primary mb-3"></i>
+                <h4>Real-time Group Chat</h4>
+                <p class="text-muted">Discuss doubts and share notes instantly.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-calendar-check-fill display-1 text-primary mb-3"></i>
+                <h4>Stay Organized</h4>
+                <p class="text-muted">Create goals and track progress together.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

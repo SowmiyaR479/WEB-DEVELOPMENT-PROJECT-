@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold">Discover Study Groups</h2>
+            <p class="text-muted">Find the perfect group to study with</p>
+        </div>
+    </div>
+
+    <!-- Search and Filter -->
+    <form method="GET" class="mb-5">
+        <div class="row g-3">
+            <!-- Search Box with Icon -->
+            <div class="col-md-7">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-white">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" 
+                           name="search" 
+                           class="form-control" 
+                           placeholder="Search by group name or description..." 
+                           value="{{ search | default('') }}">
+                </div>
+            </div>
+
+            <!-- Subject Filter -->
+            <div class="col-md-3">
+                <select name="subject" class="form-select form-select-lg">
+                    <option value="">All Subjects</option>
+                    {% for subj in subjects %}
+                        <option value="{{ subj }}" 
+                                {% if subj == request.args.get('subject') %}selected{% endif %}>
+                            {{ subj }}
+                        </option>
+                    {% endfor %}
+                    
+                    <!-- Popular Subjects -->
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="English">English</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Biology">Biology</option>
+                    <option value="History">History</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Python">Python</option>
+                    <option value="Data Structures">Data Structures</option>
+                </select>
+            </div>
+
+            <!-- Filter Button -->
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100 h-100">
+                    <i class="bi bi-filter"></i> Filter
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Groups Grid -->
+    <div class="row g-4">
+        {% for group in groups %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0 hover-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-primary fs-6">{{ group.subject }}</span>
+                        <span class="badge bg-light text-dark">
+                            {{ group.members|length }} / {{ group.max_members }}
+                        </span>
+                    </div>
+                    
+                    <h5 class="card-title">{{ group.name }}</h5>
+                    <p class="card-text text-muted">
+                        {{ group.description[:120] }}{% if group.description|length > 120 %}...{% endif %}
+                    </p>
+                </div>
+                <div class="card-footer bg-white border-0 pt-0">
+                    <a href="{{ url_for('main.group_detail', group_id=group.id) }}" 
+                       class="btn btn-outline-primary w-100">
+                        View Group
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <div class="alert alert-info text-center py-5">
+                <i class="bi bi-search display-4 mb-3 text-muted"></i>
+                <h5>No groups found</h5>
+                <p>Try changing your search term or filter.</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+.hover-card {
+    transition: all 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12) !important;
+}
+</style>
+{% endblock %}
